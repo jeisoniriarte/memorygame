@@ -10,23 +10,22 @@ var grupoTarjetas = [
 ]; //////////////////////Array
 
 var nivelActual = 0
-var niveles = [ {
-        tarjetas: grupoTarjetas[0],
-        movimientosMax : 5
-    }, {
-        tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1]),
-        movimientosMax : 10
-    }, {
-        tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1], grupoTarjetas[2]),
-        movimientosMax : 20
-    }, {
-        tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1], grupoTarjetas[2], grupoTarjetas[3]),
-        movimientosMax : 40
-    }, {
-        tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1], grupoTarjetas[2], grupoTarjetas[3], grupoTarjetas[4]),
-        movimientosMax : 80
-    }
-]
+var niveles = [{
+    tarjetas: grupoTarjetas[0],
+    movimientosMax: 5
+}, {
+    tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1]),
+    movimientosMax: 10
+}, {
+    tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1], grupoTarjetas[2]),
+    movimientosMax: 20
+}, {
+    tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1], grupoTarjetas[2], grupoTarjetas[3]),
+    movimientosMax: 40
+}, {
+    tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1], grupoTarjetas[2], grupoTarjetas[3], grupoTarjetas[4]),
+    movimientosMax: 80
+}]
 
 function barajaTarjetas(lasTarjetas) {
     var resultado;
@@ -36,7 +35,7 @@ function barajaTarjetas(lasTarjetas) {
 
     resultado = totalTarjetas.sort(
         function() {
-           return 0.5 - Math.random();
+            return 0.5 - Math.random();
         }
     );
 
@@ -48,16 +47,16 @@ function reparteTarjetas(lastarjetas) {
     var mesa = document.querySelector("#mesa");
 
     var tarjetasBarajas = barajaTarjetas(lastarjetas);
-    
+
     mesa.innerHTML = "";
-    
-    tarjetasBarajas.forEach(function(elemento){
+
+    tarjetasBarajas.forEach(function(elemento) {
 
         var tarjeta = document.createElement("div");
 
-        tarjeta.innerHTML = 
+        tarjeta.innerHTML =
             "<div class='tarjeta' data-valor=" +
-            elemento + 
+            elemento +
             ">" +
             "<div class='tarjeta__contenido'>" +
             elemento +
@@ -109,7 +108,7 @@ function comparar(tarjetasAComparar) {
 };
 
 function acierto(lasTarjetas) {
-    lasTarjetas.forEach(function(elemento){
+    lasTarjetas.forEach(function(elemento) {
         elemento.classList.add("acertada");
     });
 
@@ -118,17 +117,17 @@ function acierto(lasTarjetas) {
 
 function error(lasTarjetas) {
     setTimeout(function() {
-        lasTarjetas.forEach(function(elemento){
+        lasTarjetas.forEach(function(elemento) {
             elemento.classList.add("error");
         });
     }, 100);
 
-    setTimeout(function(){
-        lasTarjetas.forEach(function(elemento){
+    setTimeout(function() {
+        lasTarjetas.forEach(function(elemento) {
             setTimeout(function() {
                 elemento.classList.remove("descubierta");
             }, 100);
-            
+
             elemento.classList.remove("error");
         });
     }, 1100);
@@ -272,6 +271,7 @@ function gameOver() {
     clearInterval(cronometro)
     document.querySelector("#gameOver").classList.add("visible")
 }
+
 function timeOver() {
     document.querySelector("#timeOver").classList.add("visible")
 }
@@ -301,7 +301,7 @@ function iniciar() {
 function reiniciar() {
     nivelActual = 0
     actualizaNivel()
-    iniciar()  
+    iniciar()
 }
 
 function iniciaJuegoNormal() {
