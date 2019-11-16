@@ -25,8 +25,7 @@ var niveles = [{
 }, {
     tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1], grupoTarjetas[2], grupoTarjetas[3], grupoTarjetas[4]),
     movimientosMax: 80
-}
-]
+}]
 
 function barajaTarjetas(lasTarjetas) {
     var resultado;
@@ -35,7 +34,7 @@ function barajaTarjetas(lasTarjetas) {
     var totalTarjetas = lasTarjetas.concat(lasTarjetas);
 
     resultado = totalTarjetas.sort(
-        function () {
+        function() {
             return 0.5 - Math.random();
         }
     );
@@ -51,7 +50,7 @@ function reparteTarjetas(lastarjetas) {
 
     mesa.innerHTML = "";
 
-    tarjetasBarajas.forEach(function (elemento) {
+    tarjetasBarajas.forEach(function(elemento) {
 
         var tarjeta = document.createElement("div");
 
@@ -109,7 +108,7 @@ function comparar(tarjetasAComparar) {
 };
 
 function acierto(lasTarjetas) {
-    lasTarjetas.forEach(function (elemento) {
+    lasTarjetas.forEach(function(elemento) {
         elemento.classList.add("acertada");
     });
 
@@ -117,15 +116,15 @@ function acierto(lasTarjetas) {
 };
 
 function error(lasTarjetas) {
-    setTimeout(function () {
-        lasTarjetas.forEach(function (elemento) {
+    setTimeout(function() {
+        lasTarjetas.forEach(function(elemento) {
             elemento.classList.add("error");
         });
     }, 100);
 
-    setTimeout(function () {
-        lasTarjetas.forEach(function (elemento) {
-            setTimeout(function () {
+    setTimeout(function() {
+        lasTarjetas.forEach(function(elemento) {
+            setTimeout(function() {
                 elemento.classList.remove("descubierta");
             }, 100);
 
@@ -200,7 +199,7 @@ function maxContador() {
 
 function escribeNiveles() {
     var menuNiveles = document.querySelector(".selecciona-nivel ul")
-    niveles.forEach(function (elemento, indice) {
+    niveles.forEach(function(elemento, indice) {
         var controlNivel = document.createElement("li")
         controlNivel.innerHTML =
             "<button class='nivel' data-nivel=" +
@@ -272,6 +271,7 @@ function gameOver() {
     clearInterval(cronometro)
     document.querySelector("#gameOver").classList.add("visible")
 }
+
 function timeOver() {
     document.querySelector("#timeOver").classList.add("visible")
 }
@@ -287,7 +287,7 @@ function iniciar() {
     document.querySelector("#gameOver").classList.remove("visible")
     document.querySelector("#subeNivel").classList.remove("visible")
 
-    document.querySelectorAll(".tarjeta").forEach(function (elemento) {
+    document.querySelectorAll(".tarjeta").forEach(function(elemento) {
         elemento.addEventListener("click", descubrir);
     });
 
@@ -321,7 +321,7 @@ function iniciaJuegoRelax() {
 escribeNiveles()
 
 //Asignamos eventos iniciales
-document.querySelectorAll(".reiniciar").forEach(function (elemento) {
+document.querySelectorAll(".reiniciar").forEach(function(elemento) {
     elemento.addEventListener("click", reiniciar)
 })
 
@@ -333,7 +333,7 @@ document.querySelector("#control-nivel").addEventListener("click", muestraMenuNi
 
 document.querySelector("#cierra-niveles").addEventListener("click", ocultaMenuNiveles)
 
-document.querySelectorAll(".nivel").forEach(function (elemento) {
+document.querySelectorAll(".nivel").forEach(function(elemento) {
     elemento.addEventListener("click", cambiaNivel)
 })
 
