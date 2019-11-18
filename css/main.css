@@ -1,120 +1,167 @@
 :root {
     --bg: #e9ecef;
-    /* --font: "Archivo", sans-serif;
-  --font-display: "Archivo Narrow", sans-serif; */
     --font: 'Quicksand', sans-serif;
-    --font-display: 'Quicksand', sans-serif;
+    --logo-orange: #FF3D00;
     --hotpink: #e94057;
     --orange: #f27121;
+    --redwine: #BF4322;
+    --pink: #E30F86;
     --gradient: linear-gradient(35deg, var(--orange), var(--hotpink));
+    --gradient-login: linear-gradient(90deg, var(--redwine), var(--pink));
+    --gradient-login-inv: linear-gradient(90deg, var(--pink), var(--redwine));
     --grande: 300;
 }
-
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
-
+*:active, *:hover, *:focus{
+    text-decoration: none !important;
+    outline:0;
+}
 body {
     margin: auto;
     min-height: 100vh;
     background: var(--bg);
     font-family: var(--font);
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
-
-/* //////////////////////////// Iniciar Mensaje ////////////////////////// */
-
-.espacio {
-    padding: 2rem 2rem 3rem;
+/* //////////////////////////// Inicio Login - Register ////////////////////////// */
+.back-main {
+    background: var(--gradient-login);
+    min-height: 100vh;
 }
-
-.jumbotron-heading {
-    font-weight: var(--grande);
+.back-main-container {
+    width: 961px;
 }
-
-.cambia {
-    background-color: #45B587 !important;
-    transition: .3s cubic-bezier(.37, .61, .12, .95), color 1ms;
+.image-logo { 
+    display: block;
+    margin-bottom: 10px;
 }
-
+.image-logo img {
+    width: 86px;
+}
+.user-register {
+    background: var(--bg);
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 10px 0 0 10px;
+}
+.user-register p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.sesion {
+    padding: 8%;
+}
+.footer-login {
+    font-size: 1.13rem;
+}
 .flex {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
 label {
     display: block;
-    margin-bottom: 4rem;
-    text-transform: uppercase;
+    margin-bottom: 1.5rem;
 }
-
 input {
     display: block;
-    min-width: 20rem;
+    width: 100%;
     margin-top: 0.2rem;
     background: rgba(0, 0, 0, 0.03);
-    padding: 0.5rem 0.1rem;
+    padding: 0.2rem 0.2rem;
     border: 0;
-    border-bottom: 5px solid var(--hotpink);
-    font-size: 1.5rem;
-    color: var(--hotpink);
+    border-bottom: 5px solid ;
+    border-image-source: var(--gradient-login);
+    color: var(--logo-orange);
+    border-image-slice: 1;
 }
-
 input:focus {
     outline: 0;
     background: rgba(0, 0, 0, 0.06);
 }
-
 label:nth-of-type(even) input {
-    border-bottom-color: var(--orange);
-    color: var(--orange);
+    border-bottom-color: var(--gradient-login);
+    color: var(--logo-orange);
 }
-
 button {
-    cursor: pointer;
     border: 0;
-    background-image: var(--gradient);
-    padding: 0.75rem 4rem;
+    background-image: var(--gradient-login);
+    padding: 0.48rem;
     border-radius: 5rem;
-    color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 1.5rem;
+    color:white;
+    font-size: 2rem;
     line-height: 1;
     transition: 0.3s;
+    min-width: 100%;
+    margin-top: .8rem;
 }
-
-button:hover,
-button:focus {
+button:hover, button:focus,
+a:hover, a:focus {
     opacity: 0.9;
     outline: 0;
 }
-
+a.enlace {
+    color: var(--logo-orange);
+}
+.fondo-img {
+    background-image: url(http://127.0.0.1:5500/images/memorytime.jpg);
+    background-repeat: no-repeat;
+    background-size: 190% 100%;
+    background-position: 100%;
+    border-radius: 0 10px 10px 0;
+}
+.capa {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--gradient-login-inv);
+    opacity: 0.8;
+    border-radius: 0 10px 10px 0;
+}
+.text-title {
+    position: relative;
+    color: white;
+    padding: 10%;
+}
+.text-title h1 {
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+.text-title p {
+    font-size: 1.3rem;
+}
 .mensaje {
-    background-image: var(--gradient);
-    margin-bottom: 2rem;
+    background-image: var(--gradient-login);
     color: white;
     padding: 1rem 3rem;
     border-radius: 10px;
-    font-size: 1.5rem;
 }
-
 .mensaje:empty {
     display: none;
 }
-
 .mensaje p {
     margin: 1em 0;
 }
-
-
-/* ////////////////////////// End mensaje //////////////////////////// */
+.modal-confirm {
+    padding: 3rem 3rem 1rem;
+    text-align: center;
+}
+.modal-confirm p {
+    font-size: 1.5rem;
+}
+/* ////////////////////////// Fin Login - Register //////////////////////////// */
 
 .bienvenida {
     display: none;
@@ -136,7 +183,7 @@ button:focus {
 }
 
 .bienvenida h1 {
-    font-family: var(--font-display);
+    font-family: var(--font);
     text-transform: uppercase;
     font-size: 5rem;
     margin-top: 0;
@@ -162,7 +209,7 @@ button:focus {
 }
 
 .cabecera-titulo {
-    font-family: var(--font-display);
+    font-family: var(--font);
     font-weight: 600;
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -172,7 +219,7 @@ button:focus {
 }
 
 .cabecera-num {
-    font-family: var(--font-display);
+    font-family: var(--font);
     color: var(--hotpink);
     font-weight: 400;
     font-size: 3.5rem;
@@ -308,7 +355,7 @@ main {
     display: flex;
 }
 
-.modal {
+.modal-game {
     background: white;
     padding: 3rem 3rem 1rem;
     margin: auto;
@@ -319,44 +366,25 @@ main {
     justify-content: space-between;
     border-radius: 10px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25), 4px 4px 10px rgba(0, 0, 0, 0.2);
+    width: auto;
+    height: auto;
 }
 
-.modal h2 {
+.modal-game h2 {
     color: var(--orange);
-    font-family: var(--font-display);
+    font-family: var(--font);
     margin: 0;
 }
 
-.modal p {
+.modal-game p {
     font-size: 1.5rem;
 }
 
-.modal button {
+.modal-game button {
     margin: 3rem 0;
 }
 
-button {
-    cursor: pointer;
-    border: 0;
-    background-image: var(--gradient);
-    padding: 0.75rem 4rem;
-    border-radius: 5rem;
-    color: white;
-    font-family: var(--font-display);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    line-height: 1;
-    transition: 0.3s;
-}
-
-button:hover,
-button:focus {
-    opacity: 0.9;
-    outline: 0;
-}
-
-.modal .reiniciar {
+.modal-game .reiniciar {
     color: var(--hotpink);
     background: transparent;
     border: 0;

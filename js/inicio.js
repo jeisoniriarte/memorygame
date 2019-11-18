@@ -1,35 +1,35 @@
 function recogeDatos(evento) {
     evento.preventDefault();
 
-    var nombre = document.querySelector("#nombre").value;
-    var fecha = document.querySelector("#fecha").value;
-    var edad = 2019 - fecha;
+    var user = document.querySelector("#user").value;
+    var pass = document.querySelector("#pass").value;
+    var clave = 1997;
 
     var bienvenida = document.querySelector("#bienvenida");
-    var mensajeEdad;
+    var mensajePass;
 
     var mensaje;
 
-    if (edad > 30) {
-        mensajeEdad = "¡abuelo!";
-    } else if (edad < 30) {
-        mensajeEdad = "¡jovenzuelo!";
+    if (pass == clave) {
+        mensajePass = "es correcta.";
+    } else if (pass <= 1996 || pass >= 1998) {
+        mensajePass = "es incorrecta, lo sentimos.";
     } else {
-        mensajeEdad = "no me lo creo.";
+        mensajePass = "esta erronea, tiene que agregar un maximo de cuatro números.";
     }
 
     mensaje =
-        "<p>hola, " +
-        nombre +
-        ", tienes " +
-        edad +
-        " años, " +
-        mensajeEdad +
+        "<p>Hola " +
+        user +
+        ', tu contraseña "' +
+        pass +
+        '" ' +
+        mensajePass +
         "</p>";
 
     bienvenida.innerHTML = mensaje;
 }
 
-var miForm = document.querySelector("#formulario");
+var miForm = document.querySelector("#form-user");
 
 miForm.addEventListener("submit", recogeDatos);

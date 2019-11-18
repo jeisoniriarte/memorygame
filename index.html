@@ -7,53 +7,63 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Memory Game</title>
     <link rel="shortcut icon" href="https://img.icons8.com/color/48/000000/mario.png" type="image/x-icon">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <!-- Bootstrap & Apis -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-
+    <!-- Estilos -->
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="cambio">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="text-center">
-                    <div class="espacio">
-                        <img src="https://img.icons8.com/color/48/000000/mario.png" alt="Memory Game">
-                        <h1>
-                            <p class="jumbotron-heading mb-2">Memory Game</p>
-                        </h1>
-                    </div>
+<body>
+    <div id="login" class="back-main flex">
+        <div class="container back-main-container">
+            <div class="image-logo">
+                <img src="http://127.0.0.1:5500/images/memory-96.png" alt="Memory Game">
+            </div>
+            <div class="row m-0">
+                <div class="col-lg-5 user-register">
+                    <div class="sesion">
+                        <p class="text-center">Iniciar Sesión</p>
+                        <form id="form-user">
+                            <label> Usuario: <input type="text" id="user" value="" /> </label>
 
-                    <div class="flex">
-                        <div id="bienvenida" class="mensaje"></div>
-                        <form id="formulario">
-                            <label> Tu nombre: <input type="text" id="nombre" value="" /> </label>
+                            <label> Contraseña: <input type="text" id="pass" value="" /> </label>
 
-                            <label>
-                                Año en el que nacistes: <input type="text" id="fecha" value="" maxlength="4" />
-                            </label>
-
-                            <button id="boton" type="submit">Entrar</button>
+                            <button id="boton" type="submit" data-toggle="modal" data-target="#modal-confirm">Ingresa</button>
                         </form>
+                    </div>
+                    <div class="text-center">
+                        <span class="footer-login">¿Aún no te has registrado?
+                            <a class="enlace" href="#">Regístrate</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-7 fondo-img">
+                    <div class="capa"></div>
+                    <div class="text-title">
+                        <!-- <div class="image-logo">
+                            <img src="http://127.0.0.1:5500/images/memory-96.png" alt="Memory Game">
+                        </div> -->
+                        <h1>Memory Game</h1>
+                        <p>Disfruta y diviértete en un juego muy didáctico y con gran diseño, gran variedad entre los iconos de animales fabulosos para que te entretengas. Pensado especialmente para ti...</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <!-- Modals -->
+    <div class="modal modal-confirm fade" id="modal-confirm" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div id="bienvenida" class="mensaje"></div>
+        </div>
+    </div>
 
+    <!-- Bootstrap, Apis & Framework-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Estilos -->
     <script src="js/inicio.js"></script>
 </body>
 
