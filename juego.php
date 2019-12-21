@@ -1,3 +1,18 @@
+<?php 
+    session_start();
+
+    if (!isset($_SESSION["loggedin"]) ) {
+       header("location:index.php");
+    }
+
+    require_once "sql/date.php";
+    $user = $_SESSION["username"];
+    $sql = "SELECT id, user FROM users WHERE user = '$user'";
+    $result = $date->query($sql);
+    $row = $result->fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -17,11 +32,12 @@
 
 <body class="cambio">
     <div id="bienvenida" class="bienvenida">
-        <h1>👋 ¡Hola! 👋</h1>
+        <h1>👋 ¡Hola! <?php echo $row["user"]; ?>👋</h1>
         <div class="bienvenida-botones">
             <button id="juego-normal">¡Quiero jugar!</button>
             <button id="juego-relax">Modo relax</button>
         </div>
+        <a href="sql/close-session.php">Cerrar sesión</a>
     </div>
     <header class="cabecera">
         <div class="contadores">

@@ -5,7 +5,7 @@ function recogeDatos(evento) {
     var pass = document.querySelector("#pass").value;
     var clave = 1997;
 
-    var bienvenida = document.querySelector("#bienvenida");
+    var bienvenida = document.querySelector("#bienvenida p");
     var mensajePass;
 
     var mensaje;
@@ -19,13 +19,12 @@ function recogeDatos(evento) {
     }
 
     mensaje =
-        "<p>Hola " +
+        "Hola " +
         user +
         ', tu contraseña "' +
         pass +
         '" ' +
-        mensajePass +
-        "</p>";
+        mensajePass;
 
     bienvenida.innerHTML = mensaje;
 }

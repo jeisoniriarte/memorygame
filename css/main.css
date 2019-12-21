@@ -65,7 +65,6 @@ body {
 }
 .flex {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -102,6 +101,8 @@ button {
     font-size: 2rem;
     line-height: 1;
     transition: 0.3s;
+}
+.button-login {
     min-width: 100%;
     margin-top: .8rem;
 }
@@ -114,7 +115,7 @@ a.enlace {
     color: var(--logo-orange);
 }
 .fondo-img {
-    background-image: url(http://127.0.0.1:5500/images/memorytime.jpg);
+    background-image: url(../images/memorytime.jpg);
     background-repeat: no-repeat;
     background-size: 190% 100%;
     background-position: 100%;
@@ -458,4 +459,12 @@ main {
     font-size: 2rem;
     font-family: sans-serif;
     font-weight: 300;
+}
+@media screen and (max-width: 991px) {
+    .fondo-img, .capa {
+        border-radius: 0 0 10px 10px;
+    }
+    .user-register {
+        border-radius: 10px 10px 0 0;
+    }
 }

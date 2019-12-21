@@ -1,3 +1,7 @@
+<?php
+    require 'sql/code-register.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Memory Game</title>
-    <link rel="shortcut icon" href="https://img.icons8.com/color/48/000000/mario.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/memory-48.png" type="image/x-icon">
     <!-- Bootstrap & Apis -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
@@ -18,23 +22,32 @@
     <div id="login" class="back-main flex">
         <div class="container back-main-container">
             <div class="image-logo">
-                <img src="http://127.0.0.1:5500/images/memory-96.png" alt="Memory Game">
+                <img src="images/memory-96.png" alt="Memory Game">
             </div>
             <div class="row m-0">
                 <div class="col-lg-5 user-register">
                     <div class="sesion">
-                        <p class="text-center">Iniciar Sesión</p>
-                        <form id="form-user">
-                            <label> Usuario: <input type="text" id="user" value="" /> </label>
+                        <p class="text-center">Regístrarse</p>
+                        <form id="form-user" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> " method="post">
+                            <label> Nombre de usuario: <input type="text" id="user" name="username" value=""/>
+                                <span class="msg-error"> <?php echo $username_error; ?> </span>
+                            </label>
+                            
+                            
+                            <label> Email: <input type="email" id="mail" name="mail" value=""/>
+                                <span class="msg-error"> <?php echo $mail_error; ?> </span>
+                            </label>
 
-                            <label> Contraseña: <input type="text" id="pass" value="" /> </label>
+                            <label> Contraseña: <input type="password" id="pass" name="password" value=""/>
+                                <span class="msg-error"> <?php echo $password_error; ?> </span>
+                            </label>
 
-                            <button id="boton" type="submit" data-toggle="modal" data-target="#modal-confirm">Ingresa</button>
+                            <button id="boton" class="button-login" type="submit" data-toggle="modal" data-target="#modal-confirm">Registrate</button>
                         </form>
                     </div>
                     <div class="text-center">
-                        <span class="footer-login">¿Aún no te has registrado?
-                            <a class="enlace" href="#">Regístrate</a>
+                        <span class="footer-login">¿Ya te has registraddo?
+                            <a class="enlace" href="index.php">Iniciar Sesión</a>
                         </span>
                     </div>
                 </div>
@@ -42,7 +55,7 @@
                     <div class="capa"></div>
                     <div class="text-title">
                         <!-- <div class="image-logo">
-                            <img src="http://127.0.0.1:5500/images/memory-96.png" alt="Memory Game">
+                            <img src="images/memory-96.png" alt="Memory Game">
                         </div> -->
                         <h1>Memory Game</h1>
                         <p>Disfruta y diviértete en un juego muy didáctico y con gran diseño, gran variedad entre los iconos de animales fabulosos para que te entretengas. Pensado especialmente para ti...</p>
@@ -53,18 +66,18 @@
     </div>
 
     <!-- Modals -->
-    <div class="modal modal-confirm fade" id="modal-confirm" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- <div class="modal modal-confirm fade" id="modal-confirm" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
-            <div id="bienvenida" class="mensaje"></div>
+            <div id="bienvenida" class="mensaje"><p></p></div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Bootstrap, Apis & Framework-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Estilos -->
-    <script src="js/inicio.js"></script>
+    <!-- <script src="js/inicio.js"></script> -->
 </body>
 
 </html>
