@@ -12,19 +12,24 @@ var grupoTarjetas = [
 var nivelActual = 0
 var niveles = [{
     tarjetas: grupoTarjetas[0],
-    movimientosMax: 5
+    movimientosMax: 4,
+    segundos: 10
 }, {
     tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1]),
-    movimientosMax: 10
+    movimientosMax: 8,
+    segundos: 20
 }, {
     tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1], grupoTarjetas[2]),
-    movimientosMax: 20
+    movimientosMax: 20,
+    segundos: 40
 }, {
     tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1], grupoTarjetas[2], grupoTarjetas[3]),
-    movimientosMax: 40
+    movimientosMax: 40,
+    segundos: 60
 }, {
     tarjetas: grupoTarjetas[0].concat(grupoTarjetas[1], grupoTarjetas[2], grupoTarjetas[3], grupoTarjetas[4]),
-    movimientosMax: 80
+    movimientosMax: 80,
+    segundos: 80
 }]
 
 function barajaTarjetas(lasTarjetas) {
@@ -136,13 +141,20 @@ function error(lasTarjetas) {
 };
 
 function iniciarCronometro() {
-    var segundos = 10
+    var segundos = niveles[nivelActual].segundos
     var minutos = 0
     var segundosTexto
     var minutosTexto
 
+    if (segundos > 59) {
+        minutos = 1
+        segundos = segundos - 60
+    }
+
     function actualizaContador() {
-        segundos--
+        setTimeout(function() {
+            segundos--
+        }, 100);
 
         if (segundos < 0) {
             segundos = 59

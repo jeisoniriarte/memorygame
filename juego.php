@@ -44,7 +44,7 @@
             <div class="contador-item">
                 <h4 class="cabecera-titulo">Movimientos</h4>
                 <div class="cabecera-num">
-                    <span id="mov">00</span>/<span id="mov-total">20</span>
+                    <span id="mov">00</span>/<span id="mov-total">00</span>
                 </div>
             </div>
             <div id="cronometro" class="contador-item">
