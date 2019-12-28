@@ -48,7 +48,7 @@
                     if (mysqli_stmt_fetch($stmt)) {
                         
                         if (password_verify($password, $hashed_password)) {
-                            session_start();
+                            //session_start();
 
                             // ALMACENAR DATOS EN VARIABLES DE SESION
                             $_SESSION["loggedin"] = true;
